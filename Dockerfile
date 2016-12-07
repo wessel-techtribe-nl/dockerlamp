@@ -15,18 +15,6 @@ RUN set -xe \
     && LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php \
     && apt-get update 
 
-# all kind of package depencies in a seperate layer to make LAMP install faster below, can be removed when dockerfile is ok
-#RUN set -xe \
-#	&& export DEBIAN_FRONTEND=noninteractive \
-#	&& apt-get install -y apparmor busybox-initramfs cpio initramfs-tools initramfs-tools-bin initramfs-tools-core klibc-utils kmod \
-#		libaio1 libapparmor-perl libbsd0 libcgi-fast-perl libcgi-pm-perl libedit2 libencode-locale-perl libevent-core-2.0-5 \
-#		libfcgi-perl libhtml-parser-perl libhtml-tagset-perl libhtml-template-perl libhttp-date-perl libhttp-message-perl \
-#		libio-html-perl libklibc liblwp-mediatypes-perl libtimedate-perl liburi-perl libwrap0 linux-base psmisc tcpd udev \
-#  		libx11-6 libx11-data libxau6 libxcb1 libxdmcp6 libxext6 libxmuu1 \
-#  		ncurses-term  python-meld3 \
-#  		python-pkg-resources python3-chardet python3-pkg-resources python3-requests \
-#  		python3-six python3-urllib3 wget xauth
-
 # install LAMP stack
 RUN set -xe \
 	&& export DEBIAN_FRONTEND=noninteractive \
