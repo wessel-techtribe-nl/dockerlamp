@@ -37,6 +37,10 @@ RUN set -xe \
     && sed 's|DocumentRoot /var/www/html|DocumentRoot /var/www |' /etc/apache2/sites-enabled/000-default.conf > /etc/apache2/sites-enabled/000-default.conf.new \
     && cp /etc/apache2/sites-enabled/000-default.conf.new /etc/apache2/sites-enabled/000-default.conf
 
+# Install Node and install build dependencies
+RUN apt-get -y install nodejs npm && \
+    npm install -g uglify-js node-less 
+
 # cleanup
 RUN set -xe apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
