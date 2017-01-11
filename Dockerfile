@@ -39,7 +39,9 @@ RUN set -xe \
 
 # Install Node and install build dependencies
 RUN apt-get -y install nodejs npm && \
-    npm install -g uglify-js node-less 
+    ln -s /usr/bin/nodejs /usr/bin/node && \
+    npm config set prefix /usr/local && \
+    npm install -g uglify-js less
 
 # cleanup
 RUN set -xe apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
